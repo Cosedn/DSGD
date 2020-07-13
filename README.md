@@ -69,7 +69,7 @@ make CFLAGS+="-DROW=12 -DUSERS=6040 -DITEMS=3952 -DALGO_BAPA -DDATASET_PATH=./mo
 
 ### 2.3 Run
 
-The program need an extra task to collect the results from other tasks. The extra task does not paticipate in parallel computation.  Remember that you have already compiled the program with a specific ROW (see Section 3.1). Now, if you want to run the program, you need to submit it with ROW+1 tasks.
+The program need an extra task to collect the results from other tasks. The extra task does not paticipate in parallel computation.  Remember that you have already compiled the program with a specific ROW (see Section 2.2). Now, if you want to run the program, you need to submit it with ROW+1 tasks.
 
 The MPI program can be executed by specifying the task number when submitted to the cluster. On Tian-He2 platform, we use "yhrun" command to submit MPI program:
 
