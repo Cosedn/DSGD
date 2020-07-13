@@ -3,15 +3,15 @@ Distributed Stochastic Gradient Descent (DSGD) algorithm for matrix factorizatio
 
 ## 1 Description
 
-* Background
+### 1.1 Background
 
 Matrix factorization is to decompose the sparse matrix R into two matrix U and V, and enables R≈UV. SGD is an algorithm to solve the matrix factorization problem, and DSGD is a parallized SGD algorithm proposed in [1]. EsPa is a partition method originally used in DSGD, which may cause load imbalance and lowering the parallel efficiency. BaPa is an advanced partition method which effectively alleviates load imbalance problem and usually makes the program run faster than EsPa. To get more information about EsPa and BaPa, see our paper [2]. 
 
-* MPI implementation
+### 1.2 MPI implementation
 
 Data transmission is implemented by blocking sending (MPI_Send) and non-blocking receiving (MPI_Irecv and MPI_Wait), which can effectively reduce the communication cost.
 
-* How to use our program
+### 1.3 How to use our program
 
 Before running our program, you need to prepare a dataset, whose data need to be arranged in specific format (see Section 2.1). Then you need to compile the program. Some marco values are required to be specified by adding them to the CFLAG argument, or you will receive compilation error (see Section 2.2). To run the program, you need to specify the number of MPI tasks before submit it to the cluster (see Section 2.3).
 
@@ -25,11 +25,11 @@ The program currently does not output anything more than the 3 files above. If y
 
 The sparse matrix R should be stored in COO format, i.e, each nonzero is stored as a triple of (row index | column index | value). Details of the three elements are as follows:
 
-NAME			   | TYPE			|  RANGE 
--------------|----------|----------------
-row index		 | integer	|		1 to USERS
-column index | integer	|		1 to ITEMS
-value			   | double		| 	>=0
+|NAME			    | TYPE			|    RANGE       |
+| --- | :---: | --- |
+|row index	  | integer	  |		1 to USERS   |
+|column index | integer	  |		1 to ITEMS   |
+|value			  | double		| 	>=0          |
 
 The nonzeros should be sorted by row index in ascending order. For those nonzeros having the same row index, they should be sorted by column index in ascending order.
 
@@ -41,15 +41,21 @@ We have provided a dataset "movielens1m.dat" for example.
 
 Severel marcos are required to specify when compiling our program. Here are the lists of these marcos:
 
-  MACRO NAME        |   MACRO VALUE TYPE  |   DESCRIPTION
---------------------|---------------------|-------------------------------------------------------------------------------------------------
-      ROW           |        integer      | The number of row partitioning. Matrix R is partitioned into ROW * COL blocks, where COL = ROW.
-      USERS         |        integer      | The number of users.
-      ITEMS         |        integer      | The number of items.
-  DATASET_PATH      |        string       |  The path of your dataset.
-ALGO_BAPA ALGO_ESPA |                     |  The partition algorithm. Choose either BAPA or ESPA.
+|  MACRO NAME        |   MACRO VALUE TYPE  |   DESCRIPTION |
+| --- | :---: | --- |
+|      ROW           |        integer      | The number of row partitioning. Matrix R is partitioned into ROW * COL blocks, where COL = ROW. |
+|      USERS         |        integer      | The number of users. |
+|      ITEMS         |        integer      | The number of items. |
+|  DATASET_PATH      |        string       | The path of your dataset. |
+|ALGO_BAPA ALGO_ESPA |                     | The partition algorithm. Choose either BAPA or ESPA. |
 
-When using "make" to compile the program, these marcos can be specified in the format "CFLAGS+=-D<macro name (=macro value)>". Here is a compilation example:
+When using "make" to compile the program, these marcos can be specified in the format 
+
+```
+CFLAGS+=-D<macro name (=macro value)>
+```
+
+Here is a compilation example:
 
 ```
 make CFLAGS+=-DROW=12 CFLAGS+=-DUSERS=6040 CFLAGS+=-DITEMS=3952 CFLAGS+=-DALGO_BAPA CFLAGS+=-DDATASET_PATH=./movielens1m.dat
@@ -96,4 +102,4 @@ Try "-O3" argument when compiling the program, e.g., adding "CFLAGS+=-O3" to the
 ## References:
 [1] R. Gemulla, E. Nijkamp, P. J. Haas, and Y. Sismanis, “Large-scale matrix factorization with distributed stochastic gradient descent,” in Proceedings of the 17th ACM SIGKDD international conference on Knowledge discovery and data mining. ACM, 2011, pp. 69–77.
 
-[2] R. Guo et al., "BaPa: A Novel Approach of Improving Load Balance in Parallel Matrix Factorization for Recommender Systems," in IEEE Transactions on Computers, [doi: 10.1109/TC.2020.2997051] (doi: 10.1109/TC.2020.2997051).
+[2] R. Guo et al., "BaPa: A Novel Approach of Improving Load Balance in Parallel Matrix Factorization for Recommender Systems," in IEEE Transactions on Computers, doi: 10.1109/TC.2020.2997051.
