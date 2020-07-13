@@ -76,7 +76,7 @@ The program need an extra task to collect the results from other tasks. The extr
 The MPI program can be executed by specifying the task number when submitted to the cluster. On Tian-He2 platform, we use "yhrun" command to submit MPI program:
 
 ```
-yhrun -N <minimum node number> -n <task number> ./DSGD.exe
+yhrun -N <node number> -n <task number> ./DSGD.exe
 ```
 
 For example, if you compile the program by setting CFLAGS+=-DROW=12, the submitting command becomes:
@@ -87,7 +87,7 @@ yhrun -N 13 -n 13 ./DSGD.exe
 
 It is OK if the "-N" argument less than 13, since a node may have several CPUs, and each CPU may have several cores. The minimum requirement is to ensure the task number not below the core number used, since one task is executed independently by one core.
 
-Empirically, when "minimum node number" equals to "task number", i.e., each node run only one task, the computation time is the lowest. If 2 or more tasks run on one node, they may scramble for computation resources and thus causing longer computation time.
+Empirically, when "node number" equals to "task number", i.e., each node run only one task, the computation time is the lowest. If 2 or more tasks run on one node, they may scramble for computation resources and thus causing longer computation time.
 
 If not on Tian-He2 platform, the command may be different.
 
