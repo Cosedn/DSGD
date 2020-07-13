@@ -33,7 +33,7 @@ The sparse matrix R should be stored in COO format, i.e, each nonzero is stored 
 
 The nonzeros should be sorted by row index in ascending order. For those nonzeros having the same row index, they should be sorted by column index in ascending order.
 
-The user ids of original dataset may be incontinuous. For example, they may be (1, 3, 10, 20...) We made a mapping of (1, 3, 10, 20...)->(1, 2, 3, 4...) so that the user ids could be continuous. Such mapping is also used to deal incoutinuous item ids.
+The user ids of raw dataset may be incontinuous. For example, they may be (1, 3, 10, 20...) We made a mapping of (1, 3, 10, 20...)->(1, 2, 3, 4...) so that the user ids could be continuous. Such mapping is also used to deal incoutinuous item ids.
 
 We have provided a dataset "movielens1m.dat" for example.
 
