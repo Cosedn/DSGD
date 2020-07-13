@@ -31,6 +31,8 @@ The sparse matrix R should be stored in COO format, i.e, each nonzero is stored 
 |column index | integer	  |		1 to ITEMS   |
 |value			  | double		| 	>=0          |
 
+USERS means the number of rows and ITEMS means the number of columns of matrix R. We use these names because the matrix R serves as the user-item model based recommender system in our research [2].
+
 The nonzeros should be sorted by row index in ascending order. For those nonzeros having the same row index, they should be sorted by column index in ascending order.
 
 The user ids of raw dataset may be incontinuous. For example, they may be (1, 3, 10, 20...). We made a mapping of (1, 3, 10, 20...)->(1, 2, 3, 4...) so that the user ids could be continuous. Such mapping is also used to deal incoutinuous item ids.
@@ -44,8 +46,8 @@ Severel marcos are required to specify when compiling our program. Here are the 
 |  MACRO NAME        |   MACRO VALUE TYPE  |   DESCRIPTION |
 | --- | :---: | --- |
 |      ROW           |        integer      | The number of row partitioning. Matrix R is partitioned into ROW * COL blocks, where COL = ROW. |
-|      USERS         |        integer      | The number of users. |
-|      ITEMS         |        integer      | The number of items. |
+|      USERS         |        integer      | The number of rows of R. |
+|      ITEMS         |        integer      | The number of columns of R. |
 |  DATASET_PATH      |        string       | The path of your dataset. |
 |ALGO_BAPA ALGO_ESPA |                     | The partition algorithm. Choose either BAPA or ESPA. |
 
