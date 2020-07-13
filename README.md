@@ -37,7 +37,7 @@ The user ids of raw dataset may be incontinuous. For example, they may be (1, 3,
 
 We have provided a dataset "movielens1m.dat" for example.
 
-### 2.2 Complie
+### 2.2 Compile
 
 Severel marcos are required to specify when compiling our program. Here are the lists of these marcos:
 
