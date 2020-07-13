@@ -31,7 +31,7 @@ The sparse matrix R should be stored in COO format, i.e, each nonzero is stored 
 |column index | integer	  |		1 to ITEMS   |
 |value			  | double		| 	>=0          |
 
-USERS means the number of rows and ITEMS means the number of columns of matrix R. We use these names because the matrix R serves as the user-item model based recommender system in our research [2].
+USERS means the number of rows and ITEMS means the number of columns of matrix R. We use these names because the matrix R serves as the user-item model for recommender system in our research [2].
 
 The nonzeros should be sorted by row index in ascending order. For those nonzeros having the same row index, they should be sorted by column index in ascending order.
 
