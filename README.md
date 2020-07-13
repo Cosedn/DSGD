@@ -96,7 +96,7 @@ Here are some tips to further optimize our program, which have not been fully te
 Our program stores the values in double precision. Actually high precision is not necessary in Machine Learing area. Nowadays many machine learning software incline to store data in single precision or half-single precision, in order to make the program run faster.
 
 * Use optimizing argument 
-Try "-O3" argument when compiling the program, e.g., adding "CFLAGS+=-O3" to the compilation example in Section 3.1. The argument "-O3" tells the compiler to produce a more optimized assemble code, which enables the program to run faster but probably with a slight precision loss.
+Try "-O3" argument when compiling the program, e.g., adding "CFLAGS+=-O3" to the compilation example in Section 2.2. The argument "-O3" tells the compiler to produce a more optimized assemble code, which enables the program to run faster but probably with a slight precision loss.
 
 
 ## References:
