@@ -35,7 +35,7 @@ USERS means the number of rows and ITEMS means the number of columns of matrix R
 
 The nonzeros should be sorted by row index in ascending order. For those nonzeros having the same row index, they should be sorted by column index in ascending order.
 
-The user ids of raw dataset may be incontinuous. For example, they may be (1, 3, 10, 20...). We made a mapping of (1, 3, 10, 20...)->(1, 2, 3, 4...) so that the user ids could be continuous. Such mapping is also used to deal incoutinuous item ids.
+The row indices of raw dataset may be incontinuous. For example, they may be (1, 3, 10, 20...). We made a mapping of (1, 3, 10, 20...)->(1, 2, 3, 4...) so that the row indices could be continuous. Such mapping is also used to deal incoutinuous column indices.
 
 We have provided a dataset "movielens1m.dat" for example.
 
