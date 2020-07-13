@@ -52,7 +52,7 @@ Severel marcos are required to specify when compiling our program. Here are the 
 When using "make" to compile the program, these marcos can be specified in the format 
 
 ```
-CFLAGS+=-D<macro name (=macro value)>
+CFLAGS+=-D<macro name(=macro value)>
 ```
 
 Here is a compilation example:
